@@ -1,0 +1,53 @@
+
+[mysql]
+default-character-set=utf8mb4
+
+# SERVER SECTION The following options will be read by the MySQL Server.
+[mysqld]
+#bind-address=127.0.0.1
+# server-id = 1  Comment Prevents error Cannot open table mysql/slave_master_info
+server-id = 0
+pid-file=mysql.pid
+explicit_defaults_for_timestamp
+default_authentication_plugin=mysql_native_password
+
+skip-external-locking
+key_buffer_size = 128K
+max_allowed_packet = 512M
+table_open_cache = 16
+sort_buffer_size = 512K
+read_buffer_size = 512K
+read_rnd_buffer_size = 512K
+net_buffer_length = 512M
+thread_stack = 512K
+
+character-set-server=utf8mb4
+
+# federated
+skip-federated
+
+# Uncomment the following if you are using InnoDB tables
+innodb_file_per_table = 1
+innodb_data_file_path = ibdata1:10M:autoextend
+innodb_buffer_pool_size = 2G
+innodb_log_file_size = 32M
+innodb_log_buffer_size = 32M
+innodb_flush_log_at_trx_commit = 0
+innodb_lock_wait_timeout = 50
+innodb_write_io_threads = 16
+
+[mysqldump]
+quick
+max_allowed_packet = 512M
+
+[mysql]
+no-auto-rehash
+# Remove the next comment character if you are not familiar with SQL
+#safe-updates
+
+[myisamchk]
+key_buffer_size = 16M
+sort_buffer_size = 16M
+
+[mysqlhotcopy]
+interactive-timeout
