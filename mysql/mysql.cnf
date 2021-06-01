@@ -23,6 +23,8 @@ thread_stack = 512K
 
 character-set-server=utf8mb4
 
+default-time-zone = America/Fortaleza
+
 # federated
 skip-federated
 
